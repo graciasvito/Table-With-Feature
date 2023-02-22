@@ -38,6 +38,7 @@ const users = [
 ];
 
 function language() {
+  // Fungsi untuk membuat data array yang baru berdasarkan filter bahasa pemrograman
   let lang = document.getElementById("language").value;
   var arrLang = [];
   for (let i = 0; i < users.length; i++) {
@@ -47,7 +48,9 @@ function language() {
   }
   show(arrLang);
 }
+
 function show(value) {
+  // Fungsi untuk menampilkan tabel ke html
   let tab = `<tr class="headerColor">
           <th>Id</th>
           <th>Email</th>
@@ -57,7 +60,9 @@ function show(value) {
 
   // Loop to access all rows
   if (value.length === 0) {
+    // Memeriksa apakah array yang berisi data hasil filter itu kosong
     for (let r of users) {
+      // Jika ya, maka ambil data dari array yang utuh
       tab += `<tr class="detailColor"> 
       <td>${r.id} </td>
       <td>${r.email}</td>
@@ -68,6 +73,7 @@ function show(value) {
     // Setting innerHTML as tab variable
     document.getElementById("employees").innerHTML = tab;
   } else {
+    // jika tidak, maka ambil data dari array hasil filter
     for (let r of value) {
       tab += `<tr class="detailColor"> 
     <td>${r.id} </td>
@@ -122,6 +128,7 @@ const themes = [
 ];
 
 function theme() {
+  // Fungsi untuk membuat data array yang baru berdasarkan pemilihan theme
   let themeNames = document.getElementById("theme").value;
   let arrThemes = [];
   for (let i = 0; i < themes.length; i++) {
@@ -132,6 +139,7 @@ function theme() {
   changeColor(arrThemes);
 }
 function changeColor(arrThemes) {
+  // Fungsi untuk memberikan style tertentu berdasarkan array hasil pemilihan theme
   const headerColor = document.querySelector(".headerColor");
   headerColor.style.backgroundColor = arrThemes[0].headerColor;
 
