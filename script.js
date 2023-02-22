@@ -49,20 +49,20 @@ function language() {
 }
 function show(value) {
   let tab = `<tr class="headerColor">
-          <th class="headerTextColor">Id</th>
-          <th class="headerTextColor">Email</th>
-          <th class="headerTextColor">Married</th>
-          <th class="headerTextColor">Programming Language</th>
+          <th>Id</th>
+          <th>Email</th>
+          <th>Married</th>
+          <th>Programming Language</th>
          </tr>`;
 
   // Loop to access all rows
   if (value.length === 0) {
     for (let r of users) {
       tab += `<tr class="detailColor"> 
-      <td class="detailTextColor>${r.id} </td>
-      <td class="detailTextColor>${r.email}</td>
-      <td class="detailTextColor>${r.isMarried}</td> 
-      <td class="detailTextColor>${r.programmingLanguages}</td>          
+      <td>${r.id} </td>
+      <td>${r.email}</td>
+      <td>${r.isMarried}</td> 
+      <td>${r.programmingLanguages}</td>          
   </tr>`;
     }
     // Setting innerHTML as tab variable
@@ -70,10 +70,10 @@ function show(value) {
   } else {
     for (let r of value) {
       tab += `<tr class="detailColor"> 
-    <td class="detailTextColor">${r.id} </td>
-    <td class="detailTextColor">${r.email}</td>
-    <td class="detailTextColor">${r.isMarried}</td> 
-    <td class="detailTextColor">${r.programmingLanguages}</td>          
+    <td>${r.id} </td>
+    <td>${r.email}</td>
+    <td>${r.isMarried}</td> 
+    <td>${r.programmingLanguages}</td>          
 </tr>`;
     }
     // Setting innerHTML as tab variable
@@ -135,7 +135,7 @@ function changeColor(arrThemes) {
   const headerColor = document.querySelector(".headerColor");
   headerColor.style.backgroundColor = arrThemes[0].headerColor;
 
-  const headerText = document.querySelectorAll(".headerTextColor");
+  const headerText = document.querySelectorAll("th");
   headerText.forEach((x) => {
     x.style.color = arrThemes[0].headerTextColor;
   });
@@ -145,7 +145,7 @@ function changeColor(arrThemes) {
     x.style.backgroundColor = arrThemes[0].detailColor;
   });
 
-  const detailTextColor = document.querySelectorAll(".detailTextColor");
+  const detailTextColor = document.querySelectorAll("td");
   detailTextColor.forEach((x) => {
     x.style.color = arrThemes[0].detailTextColor;
   });
